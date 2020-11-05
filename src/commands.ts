@@ -1,4 +1,3 @@
-import { DiffieHellman } from 'crypto';
 import * as vscode from 'vscode';
 
 enum FileType
@@ -6,11 +5,6 @@ enum FileType
     H,
     HPP,
     UNKNOWN
-}
-
-export async function hello(args: any[]) : Promise<void>
-{
-    vscode.window.showInformationMessage('Hello World from auto-header!');
 }
 
 function getFileExt(editor : vscode.TextEditor) : FileType
@@ -111,7 +105,12 @@ class HeaderWriter
                 className = className.charAt(0).toUpperCase() + className.slice(1);
                 ret.push("\n");
                 ret.push("class " + className  + "\n")
-                ret.push("{" + "\n" + "\n")
+                ret.push("{" + "\n")
+                ret.push("public:" + "\n")
+                ret.push("\t" + className + "()" + "\n")
+                ret.push("\t~" + className + "()" + "\n")
+                ret.push("private:" + "\n")
+                ret.push("\t//data" + "\n")
                 ret.push("} //" + className + "\n")
             }
         }

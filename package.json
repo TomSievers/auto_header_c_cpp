@@ -1,28 +1,24 @@
 {
 	"name": "auto-header",
+	"publisher": "TomSievers",
 	"displayName": "auto-header",
 	"description": "automaticly fill in c and c++ header files",
 	"version": "0.0.1",
 	"engines": {
-		"vscode": "^1.50.0"
+		"vscode": "^1.40.0"
 	},
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:auto-header.helloWorld",
 		"onCommand:auto-header.insertHeader"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "auto-header.helloWorld",
-				"title": "Hello World"
-			},
-			{
 				"command": "auto-header.insertHeader",
-				"title": "Insert C/C++ header"
+				"title": "C/C++: Insert basic header"
 			}
 		]
 	},
